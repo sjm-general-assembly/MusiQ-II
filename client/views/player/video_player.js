@@ -6,19 +6,24 @@ Template.videoPlayer.rendered = function() {
   var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+  var currentVideo = Requests.findOne({status: 'waiting'}).videoId;
+
   // This function creates an <iframe> (and YouTube player)
   // after the API code downloads.
-  var player;
-  player = new YT.Player('ytPlayer', {
+  YT_player = new YT.Player('ytPlayer', {
     //height: '312',   // dimensions set in iframe, when adding the element yourself
     //width: '512',     // OR, when using response-video.css, not needed
-    videoId: 'qzeaHQbg4uc',
+    //videoId: 'qzeaHQbg4uc',
+    videoId: currentVideo,
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
     }
   });
 };
+
+var DEFAULT_STANDBY_VIDEO = 'Q98_0Af8tG8';
+var YT_Player;
 
 // The API will call this function when the video player is ready.
 onPlayerReady = function(event) {
@@ -31,7 +36,8 @@ onPlayerReady = function(event) {
 // or the player ended (state=0).
 onPlayerStateChange = function(event) {
   if (event.data == YT.PlayerState.ENDED) {
-    alert('your video ended!');
+    var nextVideo = Requests.findOne({status: 'next'}).videoId;
+    YT_player.loadVideoById(nextVideo);
     //window.location.replace("/play_next");  // plays next track in queue
   }
 };
