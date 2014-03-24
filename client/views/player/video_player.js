@@ -1,10 +1,4 @@
 Template.videoPlayer.rendered = function() {
-  // This code loads the IFrame Player API code asynchronously.
-  var tag = document.createElement('script');
-
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
   var currentVideo = Requests.findOne({status: 'waiting'}).videoId;
 
@@ -21,6 +15,12 @@ Template.videoPlayer.rendered = function() {
     }
   });
 };
+
+// This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var DEFAULT_STANDBY_VIDEO = 'Q98_0Af8tG8';
 var YT_Player;
