@@ -2,11 +2,21 @@
   <div class="row">
     <div class="col-sm-6">
       <h2>Now Playing...</h2>
+        {{> videoPlayer}}
     </div>
-    <div class="col-sm-6">
-      {{#each requests}}
-        {{> requestItem}}
-      {{/each}}
+    <div class='col-sm-6'>
+      <div class='row'>
+        <div class='col-sm-3'>
+          <h2>MusiQ!</h2>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-12'>
+          {{#each requests}}
+            {{> requestItem}}
+          {{/each}}
+        </div>
+      </div>
     </div>
   </div>
 </template>
