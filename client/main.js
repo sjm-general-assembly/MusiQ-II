@@ -7,7 +7,10 @@ musiqApp_loadGapi = function() {
 musiqApp_searchVideo = function(title, callback) {
   var request = gapi.client.youtube.search.list({
     q: title,
-    part: 'snippet'
+    part: 'snippet',
+    maxResults: '20',
+    type: 'video',
+    videoEmbeddable: 'true'
   });
 
   request.execute(function(response) {
