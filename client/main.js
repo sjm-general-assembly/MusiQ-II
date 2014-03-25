@@ -4,14 +4,19 @@ musiqApp_loadGapi = function() {
   console.log('gapi loaded.');
 };
 
-musiqApp_searchVideo = function(title) {
+musiqApp_searchVideo = function(title, callback) {
   var request = gapi.client.youtube.search.list({
     q: title,
     part: 'snippet'
   });
 
   request.execute(function(response) {
-    var str = JSON.stringify(response.result);
-    console.log(str);
+    var responseStr = JSON.stringify(response.result);
+    callback(responseStr);
   });
 };
+
+musiqApp_showResults = function(results) {
+  console.log(results);
+};
+
