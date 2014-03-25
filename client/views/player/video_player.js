@@ -1,3 +1,7 @@
+//
+// TODO - namespace the yt player initialization code
+//
+
 // This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
