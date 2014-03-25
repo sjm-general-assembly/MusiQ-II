@@ -14,12 +14,25 @@ musiqApp_searchVideo = function(title, callback) {
   });
 
   request.execute(function(response) {
-    var responseStr = JSON.stringify(response.result);
-    callback(responseStr);
+    callback(response);
   });
 };
 
-musiqApp_showResults = function(results) {
-  console.log(results);
+musiqApp_searchResults = [];
+
+musiqApp_formatSearchResults = function(response) {
+  // clear out any previous search results
+  musiqApp_searchResults.length = 0;
+
+  _.each(response.result.items, function(item) {
+    var resultItem = {};
+    resultItem.videoId = item.id.videoId;
+    resultItem.title = item.snippet.title;
+    musiqApp_searchResults.push(resultItem);
+  });
+  console.log('formatting search results');
+
+  // response.result.items[0].id.videoId;
+  // response.result.items[0].snippet.title;
 };
 
