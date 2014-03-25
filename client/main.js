@@ -13,26 +13,23 @@ musiqApp_searchVideo = function(title, callback) {
     videoEmbeddable: 'true'
   });
 
-  request.execute(function(response) {
-    callback(response);
+  request.execute(function(responseJSON) {
+    callback(responseJSON);
   });
 };
 
 musiqApp_searchResults = [];
 
-musiqApp_formatSearchResults = function(response) {
+musiqApp_formatSearchResults = function(responseJSON) {
   // clear out any previous search results
   musiqApp_searchResults.length = 0;
 
-  _.each(response.result.items, function(item) {
+  _.each(responseJSON.result.items, function(item) {
     var resultItem = {};
     resultItem.videoId = item.id.videoId;
     resultItem.title = item.snippet.title;
     musiqApp_searchResults.push(resultItem);
   });
   console.log('formatting search results');
-
-  // response.result.items[0].id.videoId;
-  // response.result.items[0].snippet.title;
 };
 
