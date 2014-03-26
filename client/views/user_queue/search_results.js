@@ -14,7 +14,8 @@ Template.searchResults.events({
     Requests.insert({
       title: this.title,
       videoId: this.videoId,
-      status: "waiting"
+      status: "waiting",
+      created: new Date()
     });
     // clear current search results list, and signal data change
     musiqApp_searchResults.length = 0;
