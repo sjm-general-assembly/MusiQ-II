@@ -1,4 +1,4 @@
-Template.player.helpers({
+Template.requests.helpers({
   requests: function() {
     return Requests.find({$or: [{status: 'waiting'}, {status: 'now playing'}]},
                           {sort: {created: 1}});

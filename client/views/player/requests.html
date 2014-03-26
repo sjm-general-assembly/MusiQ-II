@@ -1,0 +1,10 @@
+<template name='requests'>
+  {{#if requestsCount}}
+    {{#each requests}}
+      {{> requestItem}}
+    {{/each}}
+  {{else}}
+    <br>
+    <h4>&nbsp &nbsp No Requests?! &nbsp &nbsp &nbsp Get your party jumpin'...</h4>
+  {{/if}}
+</template>
