@@ -21,13 +21,13 @@ var onPlayerReady = function(event) {
 // or the player ended (state=0).
 var onPlayerStateChange = function(event) {
   if (event.data == YT.PlayerState.ENDED) {
-    var nextVideo = musiqApp_getNextSong();
+    var nextVideo = musiqApp_nextSong();
     musiqApp_YT_player.loadVideoById(nextVideo);
   }
 };
 
 Template.videoPlayer.rendered = function() {
-  var currentVideoId = musiqApp_findFirstSong();
+  var currentVideoId = musiqApp_findNextReadySong();
 
   // This function creates an <iframe> (and YouTube player)
   // after the API code downloads.
