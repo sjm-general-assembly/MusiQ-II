@@ -3,6 +3,6 @@ Template.player.helpers({
     return Requests.find();
   },
   requestsCount: function() {
-    return Requests.find({status: 'waiting'}).count();
+    return Requests.find({$or: [{status: 'waiting'}, {status: 'now playing'}]}).count();
   }
 });

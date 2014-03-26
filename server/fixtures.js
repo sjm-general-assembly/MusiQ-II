@@ -1,4 +1,4 @@
-// if (Requests.find().count() === 0) {
+if (Requests.find().count() === 0) {
 //   Requests.insert({
 //     title: "Mo' Horizons ~ Gonna Be [Ben Human Mix]",
 //     videoId: "qzeaHQbg4uc",
@@ -17,9 +17,9 @@
 //     status: "next"
 //   });
 
-//   Requests.insert({
-//     title: "Jeep's Blues",
-//     videoId: "uUcEGOLfUTE",
-//     status: "waiting"
-//   });
-// }
+  Requests.insert({
+    title: "Jeep's Blues",
+    videoId: "uUcEGOLfUTE",
+    status: "now playing"
+  });
+}
