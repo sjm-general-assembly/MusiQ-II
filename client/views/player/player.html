@@ -12,9 +12,14 @@
       </div>
       <div class='row'>
         <div class='col-sm-12'>
-          {{#each requests}}
-            {{> requestItem}}
-          {{/each}}
+          {{#if requestsCount}}
+            {{#each requests}}
+              {{> requestItem}}
+            {{/each}}
+          {{else}}
+            <br>
+            <h4>&nbsp &nbsp No Requests?! &nbsp &nbsp &nbsp Get your party jumpin'...</h4>
+          {{/if}}
         </div>
       </div>
     </div>
