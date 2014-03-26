@@ -21,8 +21,7 @@ var onPlayerReady = function(event) {
 // or the player ended (state=0).
 var onPlayerStateChange = function(event) {
   if (event.data == YT.PlayerState.ENDED) {
-    var nextVideo = musiqApp_nextSong();
-    musiqApp_YT_player.loadVideoById(nextVideo);
+    musiqApp_cueNextSong();
   }
 };
 
@@ -42,3 +41,10 @@ Template.videoPlayer.rendered = function() {
     }
   });
 };
+
+Template.videoPlayer.events({
+  'click #playNext': function(e) {
+    e.preventDefault();
+    musiqApp_cueNextSong();
+  }
+});
