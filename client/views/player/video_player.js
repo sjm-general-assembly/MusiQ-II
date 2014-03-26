@@ -11,7 +11,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 // The API will call this function when the video player is ready.
 var onPlayerReady = function(event) {
   // if default / please stand by video, don't start it, let it stay paused (so it's quiet)
-  if (musiqApp_getCurrentCuedVideoId() !== musiqApp_DEFAULT_STANDBY_VIDEO) {
+  if (musiqApp_getCuedVideoId() !== musiqApp_DEFAULT_STANDBY_VIDEO) {
     event.target.playVideo();
   }
 };
@@ -26,14 +26,11 @@ var onPlayerStateChange = function(event) {
 };
 
 Template.videoPlayer.rendered = function() {
-  var currentVideoId = musiqApp_findNextReadySong();
+  // initialize/render player with song to start with
+  var currentVideoId = musiqApp_setCurrentSongToPlay();
 
-  // This function creates an <iframe> (and YouTube player)
-  // after the API code downloads.
-  musiqApp_YT_player = new YT.Player('ytPlayer', {
-    //height: '312',   // dimensions set in iframe, when adding the element yourself
-    //width: '512',     // OR, when using response-video.css, not needed
-    //videoId: 'qzeaHQbg4uc',
+  // This function creates an <iframe> and inserts a YouTube player (after API code downloads)
+  musiqApp_YoutubePlayer = new YT.Player('ytPlayer', {
     videoId: currentVideoId,
     events: {
       'onReady': onPlayerReady,
