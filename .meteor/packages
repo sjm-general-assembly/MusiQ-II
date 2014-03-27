@@ -10,3 +10,4 @@ iron-router
 spin
 underscore
 moment
+http
