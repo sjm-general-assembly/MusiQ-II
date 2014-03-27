@@ -1,7 +1,10 @@
+Meteor.startup(function() {
+  console.log('YT_API_KEY: ' + process.env.YT_API_KEY);
+});
+
 Meteor.methods({
   searchYoutubeVideos: function(searchTitle, maxResults) {
     this.unblock();
-    var YT_API_KEY = 'AIzaSyA6cMb-IhbalPFAzvrYTFsczkF-a156WEs';
 
     //
     // TODO - research HTTP.call arguments, see of below string could be built a better way
@@ -12,7 +15,7 @@ Meteor.methods({
     params += "&q=";
     params += encodeURIComponent(searchTitle);
     params += "&type=video&videoEmbeddable=true&key=";
-    params += YT_API_KEY;
+    params += process.env.YT_API_KEY;
 
     var response = HTTP.call('GET', searchURL + params);
 
