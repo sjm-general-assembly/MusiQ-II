@@ -1,5 +1,13 @@
 Meteor.startup(function() {
-  console.log('YT_API_KEY: ' + process.env.YT_API_KEY);
+  //load api key from env var
+  var keyStr;
+  if (process.env.YT_API_KEY === undefined) {
+    keyStr = 'unable to read YT_API_KEY env variable'
+  }
+  else {
+    keyStr = process.env.YT_API_KEY.slice(0,6) + '...';
+  }
+  console.log('YT_API_KEY: ' + keyStr);
 });
 
 Meteor.methods({
