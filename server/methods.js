@@ -2,7 +2,7 @@ Meteor.startup(function() {
   //load api key from env var
   var keyStr;
   if (process.env.YT_API_KEY === undefined) {
-    keyStr = 'unable to read YT_API_KEY env variable'
+    keyStr = 'unable to read YT_API_KEY env variable';
   }
   else {
     keyStr = process.env.YT_API_KEY.slice(0,6) + '...';
