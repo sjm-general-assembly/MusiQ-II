@@ -11,6 +11,7 @@ Template.searchResults.events({
       title: this.title,
       videoId: this.videoId,
       status: musiqApp_STATUS_WAITING,
+      submittedBy: Meteor.user().username,
       created: new Date()
     });
     // clear current search results list, and signal data change
