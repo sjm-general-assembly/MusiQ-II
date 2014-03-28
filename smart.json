@@ -6,6 +6,7 @@
     },
     "spin": {},
     "moment": {},
-    "bootstrap-3": {}
+    "bootstrap-3": {},
+    "accounts-ui-bootstrap-3": {}
   }
 }
