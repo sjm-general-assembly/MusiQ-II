@@ -11,8 +11,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="{{pathFor 'userQueue'}}">My Q!</a></li>
-        <li><a href="{{pathFor 'player'}}">My Player</a></li>
+        {{#if currentUser}}
+          <li><a href="{{pathFor 'userQueue'}}">My Q!</a></li>
+          <li><a href="{{pathFor 'player'}}">My Player</a></li>
+        {{/if}}
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{loginButtons}}
