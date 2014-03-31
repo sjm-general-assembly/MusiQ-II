@@ -10,3 +10,6 @@ Meteor.startup(function() {
     }
   });
 });
+
+// Subscribe to the list of available players (currently user names)
+Meteor.subscribe('players');
