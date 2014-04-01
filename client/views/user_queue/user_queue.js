@@ -1,4 +1,7 @@
 Template.userQueue.events({
+  'change #playerName': function(e) {
+    console.log('player selection changed');
+  },
   'submit form': function(e) {
     e.preventDefault();
     var searchTitle = $(e.target).find('[name=videoSearchTitle]').val();

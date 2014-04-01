@@ -1,6 +1,4 @@
 Meteor.startup(function() {
-  console.log('Client Starting up...');
-
   // set an observer to look for newly added waiting songs
   requestsCursor = Requests.find({status: musiqApp_STATUS_WAITING});
 
