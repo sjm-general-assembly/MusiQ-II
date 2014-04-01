@@ -1,6 +1,6 @@
-Meteor.publish('requests', function(currentPlayer) {
-  // publish only songs that have not been played yet
-  return Requests.find({player: currentPlayer, status: {$ne: musiqApp_STATUS_PLAYED}});
+Meteor.publish('requests', function() {
+  // publish all requests, that have not yet played
+  return Requests.find({status: {$ne: musiqApp_STATUS_PLAYED}});
 });
 
 Meteor.publish('players', function() {
