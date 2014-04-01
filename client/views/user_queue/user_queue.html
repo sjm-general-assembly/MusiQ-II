@@ -1,4 +1,4 @@
-<template name="userQueue">
+<template name='userQueue'>
   <div class='row'>
     <div class='col-sm-4'>
       <h2>Q <em>YOUR</em> music!</h2>
@@ -9,22 +9,17 @@
       <div class='row'>
         <div class='col-sm-12'>
           <h4>Select a player...</h4>
-          <input class='form-control' list='players'/>
-          <datalist id='players'>
-            <option value='smarsh'>
-            <option value='joe'>
-            <option value='nikki'>
-          </datalist>
+          <select class='form-control'>
+            {{#each players}}
+              <option value='{{username}}'>{{username}}</option>
+            {{/each}}
+          </select>
           <h4>Find a tune... (by title or artist)</h4>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='col-sm-12'>
           <form>
             <div class='form-group'>
-              <input type="text" class="form-control" name="videoSearchTitle" autofocus="autofocus">
+              <input type='text' class='form-control' name='videoSearchTitle' autofocus='autofocus'>
             </div>
-            <input type="submit" value="Search" class="btn btn-primary">
+            <input type='submit' value='Search' class='btn btn-primary'>
           </form>
         </div>
       </div>
