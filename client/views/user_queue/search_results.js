@@ -6,8 +6,11 @@ Template.searchResults.results = function() {
 Template.searchResults.events({
   'click .addSong': function(e) {
     e.preventDefault();
-    // save selected song
+    var selectedPlayer = $('#playerName').val();
+
+    // save chosen song, for the selected player
     Requests.insert({
+      player: selectedPlayer,
       title: this.title,
       videoId: this.videoId,
       status: musiqApp_STATUS_WAITING,
