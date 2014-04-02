@@ -12,5 +12,8 @@ Template.requestList.helpers({
   timeDateFormatted: function() {
     var dt = moment(this.created);
     return dt.format('MM-DD h:mma');
+  },
+  isNowPlaying: function() {
+    return this.status === musiqApp_STATUS_NOW_PLAYING;
   }
 });

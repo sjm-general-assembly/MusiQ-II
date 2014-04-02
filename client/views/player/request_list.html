@@ -7,7 +7,7 @@
         <th width='20%'>Submitted</th>
       </tr>
       {{#each requests}}
-        <tr>
+        <tr {{#if isNowPlaying}}class='nowPlaying'{{/if}}>
           <td>{{title}}</td>
           <td>{{submittedBy}}</td>
           <td>{{timeDateFormatted}}</td>

@@ -9,3 +9,7 @@
 #spinner {
   height: 300px
 }
+
+tr.nowPlaying {
+  color: blue;
+}
