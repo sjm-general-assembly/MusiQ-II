@@ -3,7 +3,6 @@ Deps.autorun(function() {
   // when a user logs in,
   // set an observer to look for newly added waiting songs for the current player
   if (Meteor.userId()) {    
-    console.log('logging in: ' + Meteor.user().username);
     requestsCursor = Requests.find({player: Meteor.user().username,
                                     status: musiqApp_STATUS_WAITING});
 
@@ -26,7 +25,7 @@ Deps.autorun(function() {
     });
   }
   else {
-    console.log('logging out.');
+    Router.go('site');
   }
 });
 
