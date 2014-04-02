@@ -1,6 +1,6 @@
 Template.userQueue.events({
   'change #playerName': function(e) {
-    console.log('player selection changed');
+    Meteor.users.update(Meteor.userId(), {$set: {selectedPlayer: $('#playerName').val()}});
   },
   'submit form': function(e) {
     e.preventDefault();
@@ -18,6 +18,11 @@ Template.userQueue.events({
   }
 });
 
-Template.userQueue.players = function() {
-  return Meteor.users.find({}, {fields: {'username': 1}});
-};
+Template.userQueue.helpers({
+  players: function() {
+    return Meteor.users.find({}, {fields: {'username': 1}});
+  },
+  isSelectedPlayer: function() {
+    return Meteor.user().selectedPlayer === this.username;
+  }
+});

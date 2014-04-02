@@ -5,5 +5,5 @@ Meteor.publish('requests', function() {
 
 Meteor.publish('players', function() {
   // publish a list of players (keeps this separate from a user list)
-  return Meteor.users.find({}, {fields: {'username': 1, selectedPlayer: 1}});
+  return Meteor.users.find({}, {fields: {username: 1, selectedPlayer: 1}});
 });

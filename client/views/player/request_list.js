@@ -1,5 +1,6 @@
 Template.requestList.helpers({
   requests: function() {
+    // provide all requests for current player, that are ready to play
     return Requests.find({player: Meteor.user().username, $or: [{status: musiqApp_STATUS_WAITING},
                                 {status: musiqApp_STATUS_NOW_PLAYING}]},
                           {sort: {created: 1}});

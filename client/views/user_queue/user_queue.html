@@ -8,10 +8,10 @@
     <div class='col-sm-6'>
       <div class='row'>
         <div class='col-sm-12'>
-          <h4>Select a player...</h4>
+          <h4>Current Player...</h4>
           <select id='playerName' class='form-control'>
             {{#each players}}
-              <option value='{{username}}'>{{username}}</option>
+              <option value='{{username}}' {{#if isSelectedPlayer}}selected{{/if}}>{{username}}</option>
             {{/each}}
           </select>
           <h4>Find a tune... (by title or artist)</h4>
