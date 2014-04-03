@@ -2,6 +2,8 @@ Deps.autorun(function() {
 
   // when a user logs in,
   // set an observer to look for newly added waiting songs for the current player
+  // TODO - get waitOn working properly, so we know user collection will be ready
+  // and user().username will be defined
   if (Meteor.userId()) {    
     requestsCursor = Requests.find({player: Meteor.user().username,
                                     status: musiqApp_STATUS_WAITING});
@@ -28,6 +30,3 @@ Deps.autorun(function() {
     Router.go('site');
   }
 });
-
-// Subscribe to the list of available players (currently user names)
-Meteor.subscribe('players');
